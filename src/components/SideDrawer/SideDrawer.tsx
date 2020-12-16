@@ -65,12 +65,14 @@ export default function SideDrawer() {
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {['Clients', 'Users'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <PeopleIcon /> : <AccountCircleIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button key="Clients">
+            <ListItemIcon><PeopleIcon /></ListItemIcon>
+            <ListItemText primary="Clients" />
+          </ListItem>
+          <ListItem button key="Users">
+            <ListItemIcon><AccountCircleIcon /></ListItemIcon>
+            <ListItemText primary="Users" />
+          </ListItem>
         </List>
       </Drawer>
     </div>
