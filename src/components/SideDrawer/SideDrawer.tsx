@@ -12,6 +12,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import PeopleIcon from '@material-ui/icons/People';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import {Link} from 'react-router-dom'
 
 const drawerWidth = 240;
 
@@ -50,7 +51,7 @@ export default function SideDrawer() {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" noWrap>
-            Mobee Technic
+            Mobee Technic Test Lhermann
           </Typography>
         </Toolbar>
       </AppBar>
@@ -66,7 +67,7 @@ export default function SideDrawer() {
         <Divider />
         <List>
           {['Clients', 'Users'].map((text, index) => (
-            <ListItem button key={text}>
+            <ListItem button key={text} component={Link} to={'/' + text}>
               <ListItemIcon>{index % 2 === 0 ? <PeopleIcon /> : <AccountCircleIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>

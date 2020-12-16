@@ -10,7 +10,7 @@ import App from './containers/App/App';
 import ClientsContainer from './containers/ClientsContainer/ClientsContainer';
 import UsersContainer from './containers/UsersContainer/UsersContainer';
 
-const Root = () => {
+const Root = () => (
   <Router>
     <Switch>
       <Route exact path="/" component={App} />
@@ -18,11 +18,11 @@ const Root = () => {
       <Route path="/users" component={UsersContainer} />
     </Switch>
   </Router>
-}
+)
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Root />
   </React.StrictMode>,
   document.getElementById('root')
 );
