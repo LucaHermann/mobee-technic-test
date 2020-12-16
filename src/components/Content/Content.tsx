@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -76,54 +76,22 @@ function createDataClient(
   return {_id, lastname, firstname, phone, email, address, status, createdAt, updatedAt}
 };
 
-// type Client = [
-//   string,
-//   string,
-//   string, 
-//   string,
-//   string,
-//   string,
-//   string,
-//   string,
-//   number,
-//   number,
-//   string,
-//   string,
-//   Date,
-//   Date
-// ]
-
-function fetchDataClient() {
-  const url = `http://localhost:5000/clients`;
-  let rows: any[] = [];
-
-  axios.get(url).then(res => {
-    const client = res.data as IFetchClient;
-
-    const _id = client._id;
-    const lastname = client.lastname;
-    const firstname = client.firstname;
-    const phone = client.phone;
-    const email = client.email;
-    const address = {
-      street: client.address.street,
-      city: client.address.city,
-      zip: client.address.zip,
-      country: client.address.country,
-      lat: client.address.lat,
-      lng: client.address.lng
-    },
-    status = {
-      id: client.status.id,
-      label: client.status.label,
-    },
-    createdAt = client.createdAt,
-    updatedAt = client.updatedAt
-
-    rows = [_id, lastname, firstname,phone, email, address, status, createdAt, updatedAt]
-    console.log(rows);
-  }).catch(err => console.log("Errors FetchDataClients --->",err));
-}
+type Client = [
+  string,
+  string,
+  string, 
+  string,
+  string,
+  string,
+  string,
+  string,
+  number,
+  number,
+  string,
+  string,
+  Date,
+  Date
+]
 
 // const rows = [
 //   createDataClient(_id, lastname, firstname, phone, email, address, status, createdAt, updatedAt)
@@ -148,6 +116,41 @@ const useStyles = makeStyles({
 });
 
 export default function CustomizedTables() {
+  const [clientsState, setClientsState] = useState([]);
+
+  const fetchDataClient = () => {
+    const url = `http://localhost:5000/clients`;
+    let clients: Client[][] = [];
+
+    axios.get(url).then(res => {
+      const client = res.data as IFetchClient;
+  
+      const _id = client._id;
+      const lastname = client.lastname;
+      const firstname = client.firstname;
+      const phone = client.phone;
+      const email = client.email;
+      const address = {
+        street: client.address.street,
+        city: client.address.city,
+        zip: client.address.zip,
+        country: client.address.country,
+        lat: client.address.lat,
+        lng: client.address.lng
+      },
+      status = {
+        id: client.status.id,
+        label: client.status.label,
+      },
+      createdAt = client.createdAt,
+      updatedAt = client.updatedAt
+
+      clients = [_id, lastname, firstname, phone,email, address, status, createdAt, updatedAt];
+
+      setClientsState(clients);
+    }).catch(err => console.log("Errors FetchDataClients --->",err));
+  }
+
   const classes = useStyles();
 
   fetchDataClient();
