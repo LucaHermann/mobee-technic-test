@@ -1,15 +1,15 @@
 import React from 'react';
 
 import SideDrawer from '../../components/SideDrawer/SideDrawer';
-import UsersTable from '../../components/Content/UsersTable'
+import ClientTable from '../../components/Table/ClientsTable'
 
-const UsersContainer = () => {
+const ClientsContainer = () => {
   return (
     <div>
       <SideDrawer />
-      <UsersTable />
+      <ClientTable />
     </div>
   );
 }
 
-export default UsersContainer;
+export default ClientsContainer;

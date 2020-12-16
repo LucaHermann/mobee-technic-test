@@ -7,8 +7,9 @@ import {
  } from 'react-router-dom'
 
 import App from './containers/App/App';
-import ClientsContainer from './containers/ClientsContainer/ClientsContainer';
-import UsersContainer from './containers/UsersContainer/UsersContainer';
+import ClientsContainer from './containers/TableClientsContainer/ClientsContainer';
+import UsersContainer from './containers/TableUsersContainer/UsersContainer';
+import CreateUserContainer from './containers/CreateUserContainer/CreateUserContainer';
 
 const Root = () => (
   <Router>
@@ -16,6 +17,7 @@ const Root = () => (
       <Route exact path="/" component={App} />
       <Route path="/clients" component={ClientsContainer} />
       <Route path="/users" component={UsersContainer} />
+      <Route path="/CreateUser" component={CreateUserContainer} />
     </Switch>
   </Router>
 )
