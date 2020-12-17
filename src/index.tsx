@@ -10,6 +10,7 @@ import App from './containers/App/App';
 import ClientsContainer from './containers/TableClientsContainer/ClientsContainer';
 import UsersContainer from './containers/TableUsersContainer/UsersContainer';
 import CreateUserContainer from './containers/CreateUserContainer/CreateUserContainer';
+import CreateClientContainer from './containers/CreateClientContainer/CreateClientContainer';
 
 const Root = () => (
   <Router>
@@ -17,6 +18,7 @@ const Root = () => (
       <Route exact path="/" component={App} />
       <Route path="/clients" component={ClientsContainer} />
       <Route path="/users" component={UsersContainer} />
+      <Route path="/CreateClient" component={CreateClientContainer} />
       <Route path="/CreateUser" component={CreateUserContainer} />
     </Switch>
   </Router>

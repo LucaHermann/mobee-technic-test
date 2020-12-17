@@ -5,7 +5,7 @@ function generateFakeData() {
   var users = [];
 
   for (var i = 0; i < 10; i++) {
-    var _id = faker.random.uuid();
+    var id = faker.random.uuid();
     var lastname = faker.name.lastName();
     var firstname = faker.name.firstName();
     var phone = faker.phone.phoneNumber();
@@ -28,7 +28,7 @@ function generateFakeData() {
 
 
     clients.push({
-      "_id": _id,
+      "id": id,
       "lastname": lastname,
       "firstname": firstname,
       "phone": phone,
@@ -50,7 +50,7 @@ function generateFakeData() {
     })
 
     users.push({
-      "_id": _id,
+      "id": id,
       "email": email,
       "lastname": lastname,
       "firstname": firstname,

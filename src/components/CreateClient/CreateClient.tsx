@@ -43,23 +43,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CreateUser = () => {
-  const [newUserState, setNewUserState] = useState({
-    id: faker.random.uuid(), email: '', lastname: '', firstname: '',
-    password: '', createdAt: new Date(), updatedAt: new Date(),
+const CreateClient = () => {
+  const [newClientState, setNewClientState] = useState({
+    id: faker.random.uuid(), lastname: '', firstname: '',
+    phone: '', email: '', address: { street: '', city: '', zip: '', country: '',
+    lat: faker.address.latitude(), lng: faker.address.longitude()},
+    status: {id: faker.random.uuid(), label: 'Client Mobee'},
+    createdAt: new Date(), updatedAt: new Date(),
   })
   const [resStatus, setResStatus] = useState({
     errorMessage: ''
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setNewUserState({...newUserState, [e.target.name]: e.target.value});
+    setNewClientState({...newClientState, [e.target.name]: e.target.value});
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-    const url = 'http://localhost:5000/users';
+    const url = 'http://localhost:5000/clients';
 
-    axios.post(url, newUserState)
+    axios.post(url, newClientState)
       .then((response) => {
         console.log('res ->', response);
         if (response.status === 200) {
@@ -80,22 +83,9 @@ const CreateUser = () => {
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          Add User
+          Add Client
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="email"
-            type="mail"
-            name="email"
-            value={newUserState.email}
-            autoFocus
-            onChange={handleChange}
-          />
           <TextField
             variant="outlined"
             margin="normal"
@@ -104,7 +94,7 @@ const CreateUser = () => {
             name="lastname"
             label="lastname"
             type="text"
-            value={newUserState.lastname}
+            value={newClientState.lastname}
             id="lastname"
             onChange={handleChange}
           />
@@ -116,7 +106,7 @@ const CreateUser = () => {
             name="firstname"
             label="firstname"
             type="text"
-            value={newUserState.firstname}
+            value={newClientState.firstname}
             id="firstname"
             onChange={handleChange}
           />
@@ -125,11 +115,77 @@ const CreateUser = () => {
             margin="normal"
             required
             fullWidth
-            name="password"
-            label="password"
-            type="password"
-            value={newUserState.password}
-            id="password"
+            id="phone"
+            label="phone"
+            type="text"
+            name="phone"
+            value={newClientState.phone}
+            autoFocus
+            onChange={handleChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="email"
+            type="mail"
+            name="email"
+            value={newClientState.email}
+            autoFocus
+            onChange={handleChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="street"
+            label="street"
+            type="text"
+            name="street"
+            value={newClientState.address.street}
+            autoFocus
+            onChange={handleChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="city"
+            label="city"
+            type="text"
+            name="city"
+            value={newClientState.address.city}
+            autoFocus
+            onChange={handleChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="zip"
+            label="zip"
+            type="text"
+            name="zip"
+            value={newClientState.address.zip}
+            autoFocus
+            onChange={handleChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="country"
+            label="country"
+            type="text"
+            name="country"
+            value={newClientState.address.country}
+            autoFocus
             onChange={handleChange}
           />
           <Button
@@ -139,7 +195,7 @@ const CreateUser = () => {
             color="primary"
             className={classes.submit}
           >
-            Create User
+            Create Client
           </Button>
           <p>{resStatus.errorMessage}</p>
         </form>
@@ -151,4 +207,4 @@ const CreateUser = () => {
   );
 }
 
-export default CreateUser;
+export default CreateClient;

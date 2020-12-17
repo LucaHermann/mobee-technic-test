@@ -39,7 +39,7 @@ const useStyles = makeStyles({
 });
 
 interface IFetchUser {
-  _id: string;
+  id: string;
   email: string;
   lastname: string;
   firstname: string;
@@ -74,7 +74,7 @@ export default function UsersTable() {
         </TableHead>
         <TableBody>
           {usersState.map((user: IFetchUser) => (
-            <StyledTableRow key={user._id}>
+            <StyledTableRow key={user.id}>
               <StyledTableCell align="left">{user.email}</StyledTableCell>
               <StyledTableCell align="left">{user.lastname}</StyledTableCell>
               <StyledTableCell align="left">{user.firstname}</StyledTableCell>

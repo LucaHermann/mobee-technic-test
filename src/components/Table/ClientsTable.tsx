@@ -39,7 +39,7 @@ const useStyles = makeStyles({
 });
 
 interface IFetchClient {
-  _id: string;
+  id: string;
   lastname: string;
   firstname: string;
   phone: string;
@@ -88,7 +88,7 @@ export default function ContentClient() {
         </TableHead>
         <TableBody>
           {clientsState.map((client: IFetchClient) => (
-            <StyledTableRow key={client._id}>
+            <StyledTableRow key={client.id}>
               <StyledTableCell align="left">{client.email}</StyledTableCell>
               <StyledTableCell align="left">{client.lastname}</StyledTableCell>
               <StyledTableCell align="left">{client.firstname}</StyledTableCell>
