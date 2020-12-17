@@ -59,6 +59,12 @@ const CreateClient = () => {
     setNewClientState({...newClientState, [e.target.name]: e.target.value});
   }
 
+  const handleChangeAddress = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const address = {...newClientState.address, [e.target.name]: e.target.value};
+
+    setNewClientState({...newClientState, address});
+  }
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     const url = 'http://localhost:5000/clients';
 
@@ -147,7 +153,7 @@ const CreateClient = () => {
             name="street"
             value={newClientState.address.street}
             autoFocus
-            onChange={handleChange}
+            onChange={handleChangeAddress}
           />
           <TextField
             variant="outlined"
@@ -160,7 +166,7 @@ const CreateClient = () => {
             name="city"
             value={newClientState.address.city}
             autoFocus
-            onChange={handleChange}
+            onChange={handleChangeAddress}
           />
           <TextField
             variant="outlined"
@@ -173,7 +179,7 @@ const CreateClient = () => {
             name="zip"
             value={newClientState.address.zip}
             autoFocus
-            onChange={handleChange}
+            onChange={handleChangeAddress}
           />
           <TextField
             variant="outlined"
@@ -186,7 +192,7 @@ const CreateClient = () => {
             name="country"
             value={newClientState.address.country}
             autoFocus
-            onChange={handleChange}
+            onChange={handleChangeAddress}
           />
           <Button
             type="submit"
