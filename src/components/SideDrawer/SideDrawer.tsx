@@ -66,7 +66,7 @@ export default function SideDrawer() {
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {['Clients', 'Users', 'CreateClient', 'CreateUser'].map((text, index) => (
+          {['Clients', 'Users', 'Manage Client', 'Manage User'].map((text, index) => (
             <ListItem button key={text} component={Link} to={'/' + text}>
               <ListItemIcon>{index % 2 === 0 ? <PeopleIcon /> : <AccountCircleIcon />}</ListItemIcon>
               <ListItemText primary={text} />

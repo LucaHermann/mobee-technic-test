@@ -4,7 +4,7 @@ function generateFakeData() {
   var clients = [];
   var users = [];
 
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 5; i++) {
     var id = faker.random.uuid();
     var lastname = faker.name.lastName();
     var firstname = faker.name.firstName();

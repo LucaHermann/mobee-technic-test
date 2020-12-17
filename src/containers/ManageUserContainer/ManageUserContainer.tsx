@@ -3,7 +3,7 @@ import React from 'react';
 import SideDrawer from '../../components/SideDrawer/SideDrawer';
 import CreateUser from '../../components/CreateUser/CreateUser';
 
-const CreateUserContainer = () => {
+const ManageUserContainer = () => {
   return (
     <div>
       <SideDrawer />
@@ -12,4 +12,4 @@ const CreateUserContainer = () => {
   );
 }
 
-export default CreateUserContainer;
+export default ManageUserContainer;
