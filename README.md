@@ -6,4 +6,5 @@ Your mission is to develop a mini-dashboard (back and front), using ReactJS coup
 ## usages
 
 1. run npm install
-2. on the npm script launch dev for launch the json-server and the react app
+2. run npm run dev for launch the json-server and the react app
+3. on your web browser open localhost:3000
